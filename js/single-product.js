@@ -27,11 +27,19 @@ productTitle.innerHTML = findProduct.name
 
 
 /* product price */
-const productOldPrice = document.querySelector(".old-price")
-productOldPrice.innerHTML = `$${findProduct.price.oldPrice.toFixed(2)}`
+const formatRupiah = (amount) => {
+    return new Intl.NumberFormat('id-ID', {
+        style: 'currency',
+        currency: 'IDR',
+        minimumFractionDigits: 0
+    }).format(amount);
+};
 
-const productNewPrice = document.querySelector(".new-price")
-productNewPrice.innerHTML = `$${findProduct.price.newPrice.toFixed(2)}`
+const productOldPrice = document.querySelector(".old-price");
+productOldPrice.innerHTML = formatRupiah(findProduct.price.oldPrice);
+
+const productNewPrice = document.querySelector(".new-price");
+productNewPrice.innerHTML = formatRupiah(findProduct.price.newPrice);
 
 /* product gallery */
 const singleImage = document.getElementById("single-image")

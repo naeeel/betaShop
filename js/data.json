@@ -1,18 +1,18 @@
 [
     {
         "id": 1,
-        "name": "Analogue Resin Strap",
+        "name": "Keripik Pisang",
         "price": {
-            "oldPrice": 160.00,
-            "newPrice": 108.00
+            "oldPrice": 10000,
+            "newPrice": 8000
         },
         "discount": 22,
         "img": {
-            "singleImage": "img/products/product1/1.png",
+            "singleImage": "img/products/product1/1.jpg",
             "thumbs": [
-                "img/products/product1/1.png",
-                "img/products/product1/2.png",
-                "img/products/product1/3.png"
+                "img/products/product1/1.jpg",
+                "img/products/product1/2.jpg",
+                "img/products/product1/3.jpg"
             ]
         }
     },
