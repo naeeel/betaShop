@@ -39,7 +39,7 @@
                                         <i class="bi bi-chevron-down"></i>
                                     </a>
                                     <div class="menu-dropdown-wrapper">
-                                        <ul class="menu-dropdown-content">
+                                        <!-- <ul class="menu-dropdown-content">
                                             <li><a href="#">Home Clean</a></li>
                                             <li><a href="#">Home Collection</a></li>
                                             <li><a href="#">Home Minimal</a></li>
@@ -49,14 +49,14 @@
                                             <li><a href="#">Home Style</a></li>
                                             <li><a href="#">Home Unique</a></li>
                                             <li><a href="#">Home RTL</a></li>
-                                        </ul>
+                                        </ul> -->
                                     </div>
                                 </li>
                                 <li class="menu-list-item megamenu-wrapper">
                                     <a href="shop.html" class="menu-link">Shop
                                         <i class="bi bi-chevron-down"></i>
                                     </a>
-                                    <div class="menu-dropdown-wrapper">
+                                    <!-- <div class="menu-dropdown-wrapper">
                                         <div class="menu-dropdown-megamenu">
                                             <div class="megamenu-links">
                                                 <div class="megamenu-products">
@@ -93,7 +93,7 @@
                                                         <li><a href="#">Cart Modal</a></li>
                                                         <li><a href="#">Cart Drawer</a></li>
                                                         <li><a href="#">Cart Page</a></li>
-                                                    </ul>
+                                                    </ul> 
                                                 </div>
                                             </div>
                                             <div class="megamenu-single">
@@ -107,9 +107,9 @@
                                                     Suspendisse faucibus nunc et pellentesque
                                                 </h4>
                                                 <a href="#" class="megamenu-single-button btn btn-sm">Shop Now</a>
-                                            </div>
+                                            </div> 
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </li>
                                 <li class="menu-list-item">
                                     <a href="blog.html" class="menu-link">Blog
@@ -136,7 +136,7 @@
                             <div class="header-cart">
                                 <a href="cart.html" class="header-cart-link">
                                     <i class="bi bi-bag"></i>
-                                    <span class="header-cart-count">0</span>
+                                    <span class="header-cart-count">2</span>
                                 </a>
                             </div>
                         </div>
@@ -181,7 +181,7 @@
                 <form class="cart-form">
                     <div class="free-progress-bar">
                         <p class="progress-bar-title">
-                            Add <strong>$161.00</strong> to cart and get free shipping!
+                            Add <strong>Rp.161.000</strong> to cart and get free shipping!
                         </p>
                         <div class="progress-bar">
                             <span class="progress"></span>
@@ -190,17 +190,34 @@
                     <div class="shop-table-wrapper">
                         <table class="shop-table">
                             <thead>
-                                <th class="product-thumbnail">&nbsp;</th>
-                                <th class="product-thumbnail">&nbsp;</th>
-                                <th class="product-name">Product</th>
-                                <th class="product-price">Price</th>
-                                <th class="product-quantity">Quantity</th>
-                                <th class="product-subtotal">Subtotal</th>
+                                <tr>
+                                    <th class="product-thumbnail">&nbsp;</th>
+                                    <th class="product-thumbnail">&nbsp;</th>
+                                    <th class="product-name">Product</th>
+                                    <th class="product-price">Price</th>
+                                    <th class="product-quantity">Quantity</th>
+                                    <th class="product-subtotal">Subtotal</th>
+                                </tr>
                             </thead>
-                            <tbody class="cart-wrapper" id="cart-product">
-
+                            <tbody class="cart-wrapper">
+                                <tr>
+                                    <td><img src="img/products/product2/kerupuk.jpg" width="50"></td>
+                                    <td><input type="checkbox"></td>
+                                    <td>Keripik Pisang</td>
+                                    <td>Rp.10.000</td>
+                                    <td><input type="number" value="1" min="1"></td>
+                                    <td>Rp.10.000</td>
+                                </tr>
+                                <tr>
+                                    <td><img src="img/products/product2/ulos.jpg" width="50"></td>
+                                    <td><input type="checkbox"></td>
+                                    <td>Ulos Sadum</td>
+                                    <td>Rp.500.000</td>
+                                    <td><input type="number" value="2" min="1"></td>
+                                    <td>Rp.1.000.000</td>
+                                </tr>
                             </tbody>
-                        </table>
+                        </table>                        
                         <div class="action-wrapper">
                             <div class="coupon">
                                 <input type="text" class="input-text" placeholder="Coupon Code">
@@ -220,8 +237,8 @@
                                 <tr class="cart-subtotal">
                                     <th>Subtotal</th>
                                     <td>
-                                        <span id="subtotal">
-                                            $316.00
+                                        <span>
+                                            Rp.1.010.000
                                         </span>
                                     </td>
                                 </tr>
@@ -231,7 +248,7 @@
                                         <ul>
                                             <li>
                                                 <label>
-                                                    Fast Cargo :$15.00
+                                                    Fast Cargo :Rp.15.000
                                                     <input type="checkbox" id="fast-cargo">
                                                 </label>
                                             </li>
@@ -244,7 +261,7 @@
                                 <tr>
                                     <th>Total</th>
                                     <td>
-                                        <strong id="cart-total">$316.00</strong>
+                                        <strong id="cart-total">Rp.1.025.000</strong>
                                     </td>
                                 </tr>
                             </tbody>
@@ -267,7 +284,7 @@
                     <i class="bi bi-truck"></i>
                     <div class="policy-texts">
                         <strong>FREE DELIVERY</strong>
-                        <span>From $59.89</span>
+                        <span>From Rp.59.89</span>
                     </div>
                 </li>
                 <li class="policy-item">
@@ -308,8 +325,8 @@
                                     Get our emails for info on new items, sales and more.
                                 </h3>
                                 <p class="subscribe-desc">
-                                    We'll email you a voucher worth $10 off your first order
-                                    over $50.
+                                    We'll email you a voucher worth Rp.10 off your first order
+                                    over Rp.50.
                                 </p>
                             </div>
                             <div class="footer-subscribe-bottom">
