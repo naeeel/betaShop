@@ -18,52 +18,52 @@
     },
     {
         "id": 2,
-        "name": "Ridley High Waist",
+        "name": "Ulos",
         "price": {
             "oldPrice": 265000,
             "newPrice": 208000
         },
         "discount": 33,
         "img": {
-            "singleImage": "img/products/product2/1.png",
+            "singleImage": "img/products/product2/1.jpg",
             "thumbs": [
-                "img/products/product2/1.png",
-                "img/products/product2/2.png",
-                "img/products/product2/3.png"
+                "img/products/product2/1.jpg",
+                "img/products/product2/2.jpg",
+                "img/products/product2/3.jpg"
             ]
         }
     },
     {
         "id": 3,
-        "name": "Blush Beanie",
+        "name": "Kaca Hias",
         "price": {
             "oldPrice": 105000,
             "newPrice": 67000
         },
         "discount": 90,
         "img": {
-            "singleImage": "img/products/product3/1.png",
+            "singleImage": "img/products/product3/1.jpg",
             "thumbs": [
-                "img/products/product3/1.png",
-                "img/products/product3/2.png",
-                "img/products/product3/3.png"
+                "img/products/product3/1.jpg",
+                "img/products/product3/2.jpg",
+                "img/products/product3/3.jpg"
             ]
         }
     },
     {
         "id": 4,
-        "name": "Mercury Tee",
+        "name": "Tagading",
         "price": {
             "oldPrice": 55000,
             "newPrice": 48000
         },
         "discount": 40,
         "img": {
-            "singleImage": "img/products/product4/1.png",
+            "singleImage": "img/products/product4/1.jpg",
             "thumbs": [
-                "img/products/product4/1.png",
-                "img/products/product4/2.png",
-                "img/products/product4/3.png"
+                "img/products/product4/1.jpg",
+                "img/products/product4/2.jpg",
+                "img/products/product4/3.jpg"
             ]
         }
     },
@@ -76,11 +76,11 @@
         },
         "discount": 40,
         "img": {
-            "singleImage": "img/products/product5/1.png",
+            "singleImage": "img/products/product5/1.jpg",
             "thumbs": [
-                "img/products/product5/1.png",
-                "img/products/product5/2.png",
-                "img/products/product5/3.png"
+                "img/products/product5/1.jpg",
+                "img/products/product5/2.jpg",
+                "img/products/product5/3.jpg"
             ]
         }
     }
