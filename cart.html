@@ -199,23 +199,8 @@
                                     <th class="product-subtotal">Subtotal</th>
                                 </tr>
                             </thead>
-                            <tbody class="cart-wrapper">
-                                <tr>
-                                    <td><img src="img/products/product1/1.jpg" width="50"></td>
-                                    <td><input type="checkbox"></td>
-                                    <td>Keripik Pisang</td>
-                                    <td>Rp.8.000</td>
-                                    <td><input type="number" value="1" min="1"></td>
-                                    <td>Rp.8.000</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="img/products/product2/ulos.jpg" width="50"></td>
-                                    <td><input type="checkbox"></td>
-                                    <td>Ulos Sadum</td>
-                                    <td>Rp.500.000</td>
-                                    <td><input type="number" value="2" min="1"></td>
-                                    <td>Rp.1.000.000</td>
-                                </tr>
+                            <tbody class="cart-wrapper" id="cart-product">
+                                
                             </tbody>
                         </table>                        
                         <div class="action-wrapper">
@@ -237,7 +222,7 @@
                                 <tr class="cart-subtotal">
                                     <th>Subtotal</th>
                                     <td>
-                                        <span>
+                                        <span id="subtotal">
                                             Rp.1.010.000
                                         </span>
                                     </td>

@@ -5,6 +5,14 @@ export let cart = localStorage.getItem("cart")
     ? JSON.parse(localStorage.getItem("cart")) : []
 
 
+    const formatRupiah = (amount) => {
+        return new Intl.NumberFormat('id-ID', {
+            style: 'currency',
+            currency: 'IDR',
+            minimumFractionDigits: 0
+        }).format(amount);
+    };
+
 function addToCart(products) {
     const cartItem = document.querySelector(".header-cart-count")
     const buttons = [...document.getElementsByClassName("add-to-cart")]
@@ -86,8 +94,8 @@ async function productFunc(products) {
                         </li>
                     </ul>
                     <div class="product-prices">
-                        <strong class="new-price">Rp${product.price.newPrice.toFixed(2)}</strong>
-                        <span class="old-price">Rp${product.price.oldPrice.toFixed(2)}</span>
+                        <strong class="new-price">${formatRupiah(product.price.newPrice.toFixed(2))}</strong>
+                        <span class="old-price">${formatRupiah(product.price.oldPrice.toFixed(2))}</span>
                     </div>
                     <span class="product-discount"> ${product.discount}% </span>
                     <div class="product-links">
