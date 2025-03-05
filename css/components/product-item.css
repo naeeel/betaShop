@@ -8,20 +8,22 @@
 
 .products .product-item .product-image {
     width: 100%;
-    height: 100%;
+    height: 300px; /* Sesuaikan dengan kebutuhan */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Supaya gambar yang lebih besar tidak keluar */
 }
+
 
 .products .product-item img {
     width: 100%;
     transition: all 0.3s ease-in;
-
+    overflow: hidden;
+    margin-top: auto;
 }
 
 
-.product-item:hover .img2 {
-    opacity: 1;
-    visibility: visible;
-}
 
 .product-image .img2 {
     display: flex;
