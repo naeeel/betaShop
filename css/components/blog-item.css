@@ -3,7 +3,12 @@
 }
 
 .blog-list .blog-image {
-    display: flex;
+    width: 100%; /* Biar mengikuti parent */
+    aspect-ratio: 16 / 9; /* Paksa aspect ratio 16:9 */
+    overflow: hidden; /* Biar nggak ada bagian gambar yang keluar */
+    display: flex; /* Sesuai dengan gaya yang sudah ada */
+    justify-content: center;
+    align-items: center;
 }
 
 
