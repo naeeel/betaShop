@@ -147,6 +147,9 @@
   </header>
   <!-- ! header end -->
 
+  <!-- Notification container -->
+  <div id="notification" class="notification"></div>
+
   <!-- ! modal search start -->
   <div class="modal-search">
     <div class="modal-wrapper">
@@ -179,17 +182,17 @@
       <div class="account-wrapper">
         <div class="account-column">
           <h2>Login</h2>
-          <form>
+          <form id="login-form">
             <div>
               <label>
                 <span>Username atau email<span class="required">*</span></span>
-                <input type="text">
+                <input type="text" id="login-username">
               </label>
             </div>
             <div>
               <label>
                 <span>Password <span class="required">*</span></span>
-                <input type="password">
+                <input type="password" id="login-password">
               </label>
             </div>
             <p class="remember">
@@ -197,30 +200,30 @@
                 <input type="checkbox">
                 <span>Ingat Saya</span>
               </label>
-              <button class="btn btn-sm"><a href="index.html" style="color: white;">Login</a></button>
+              <button type="button" class="btn btn-sm" id="login-button">Login</button>
             </p>
             <a href="#" class="form-link">Lupa Password?</a>
           </form>
         </div>
         <div class="account-column">
           <h2>Registrasi</h2>
-          <form>
+          <form id="register-form">
             <div>
               <label>
                 <span>Username <span class="required">*</span></span>
-                <input type="text">
+                <input type="text" id="register-username">
               </label>
             </div>
             <div>
               <label>
                 <span>Email <span class="required">*</span></span>
-                <input type="email">
+                <input type="email" id="register-email">
               </label>
             </div>
             <div>
               <label>
                 <span>Password <span class="required">*</span></span>
-                <input type="password">
+                <input type="password" id="register-password">
               </label>
             </div>
             <div class="privacy-policy-text remember">
@@ -228,7 +231,7 @@
                 Data pribadi Anda akan digunakan untuk mendukung pengalaman Anda di seluruh situs web ini, untuk mengelola akses ke
                 akun Anda, dan untuk tujuan lain yang dijelaskan dalam  <a href="#">kebijakan privasi kami</a>.
               </p>
-              <button class="btn btn-sm">Registrasi</button>
+              <button type="button" class="btn btn-sm" id="register-button">Registrasi</button>
             </div>
           </form>
         </div>
@@ -236,6 +239,17 @@
     </div>
   </section>
   <!-- ! account end -->
+
+  <!-- Forgot Password Modal -->
+  <div id="forgot-password-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="close-forgot-password">&times;</span>
+      <h3>Reset Password</h3>
+      <p>Masukkan email Anda untuk mereset password.</p>
+      <input type="email" id="forgot-password-email" placeholder="Masukkan email Anda">
+      <button id="forgot-password-submit" class="btn btn-sm">Kirim</button>
+    </div>
+  </div>
 
   <!-- ! policy start -->
   <section class="policy">
@@ -460,10 +474,262 @@
       </div>
     </div>
   </section>
-  <!-- ! footer end -->
+
 
   <!-- scripts start -->
   <script src="js/main.js" type="module"></script>
+  <script>
+    // Helper function to show notifications
+    function showNotification(message, type) {
+      const notification = document.getElementById('notification');
+      notification.textContent = message;
+      notification.className = `notification ${type}`;
+      notification.style.display = 'block';
+
+      setTimeout(() => {
+        notification.style.opacity = '0';
+        setTimeout(() => {
+          notification.style.display = 'none';
+          notification.style.opacity = '1';
+        }, 500);
+      }, 3000);
+    }
+
+    // Helper function to show error on fields
+    function highlightErrorField(field, message) {
+      field.classList.add('error');
+      field.setAttribute('title', message);
+      setTimeout(() => {
+        field.classList.remove('error');
+        field.removeAttribute('title');
+      }, 3000);
+    }
+
+    // Helper function to validate email format
+    function isValidEmail(email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
+
+    // Login and Register functionality using localStorage
+    document.getElementById('register-button').addEventListener('click', function () {
+      const username = document.getElementById('register-username');
+      const email = document.getElementById('register-email');
+      const password = document.getElementById('register-password');
+
+      if (!username.value.trim()) {
+        highlightErrorField(username, 'Username wajib diisi!');
+        return;
+      }
+
+      if (!email.value.trim()) {
+        highlightErrorField(email, 'Email wajib diisi!');
+        return;
+      }
+
+      if (!isValidEmail(email.value.trim())) {
+        highlightErrorField(email, 'Format email tidak valid!');
+        return;
+      }
+
+      if (!password.value.trim()) {
+        highlightErrorField(password, 'Password wajib diisi!');
+        return;
+      }
+
+      const users = JSON.parse(localStorage.getItem('users')) || [];
+      const userExists = users.some(user => user.email === email.value.trim());
+
+      if (userExists) {
+        highlightErrorField(email, 'Email sudah terdaftar!');
+      } else {
+        users.push({ username: username.value.trim(), email: email.value.trim(), password: password.value.trim() });
+        localStorage.setItem('users', JSON.stringify(users));
+        showNotification('Registrasi berhasil!', 'success');
+      }
+    });
+
+    document.getElementById('login-button').addEventListener('click', function () {
+      const usernameOrEmail = document.getElementById('login-username');
+      const password = document.getElementById('login-password');
+
+      if (!usernameOrEmail.value.trim()) {
+        highlightErrorField(usernameOrEmail, 'Username atau email wajib diisi!');
+        return;
+      }
+
+      if (!password.value.trim()) {
+        highlightErrorField(password, 'Password wajib diisi!');
+        return;
+      }
+
+      const users = JSON.parse(localStorage.getItem('users')) || [];
+      const user = users.find(user => 
+        (user.email === usernameOrEmail.value.trim() || user.username === usernameOrEmail.value.trim()) && 
+        user.password === password.value.trim()
+      );
+
+      if (user) {
+        showNotification('Login berhasil!', 'success');
+        sessionStorage.setItem('loggedInUser', JSON.stringify(user));
+        setTimeout(() => {
+          window.location.href = '/';
+        }, 1000);
+      } else {
+        highlightErrorField(usernameOrEmail, 'Username atau password salah!');
+        highlightErrorField(password, 'Username atau password salah!');
+      }
+    });
+
+    // Open and close modal functionality
+    const forgotPasswordModal = document.getElementById('forgot-password-modal');
+    const closeForgotPassword = document.getElementById('close-forgot-password');
+    const forgotPasswordLink = document.querySelector('.form-link');
+
+    forgotPasswordLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      forgotPasswordModal.style.display = 'block';
+    });
+
+    closeForgotPassword.addEventListener('click', () => {
+      forgotPasswordModal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === forgotPasswordModal) {
+        forgotPasswordModal.style.display = 'none';
+      }
+    });
+
+    // Forgot Password functionality
+    document.getElementById('forgot-password-submit').addEventListener('click', () => {
+      const email = document.getElementById('forgot-password-email').value.trim();
+
+      if (!email) {
+        highlightErrorField(document.getElementById('forgot-password-email'), 'Email wajib diisi!');
+        return;
+      }
+
+      if (!isValidEmail(email)) {
+        highlightErrorField(document.getElementById('forgot-password-email'), 'Format email tidak valid!');
+        return;
+      }
+
+      const users = JSON.parse(localStorage.getItem('users')) || [];
+      const user = users.find(user => user.email === email);
+
+      if (user) {
+        showNotification('Instruksi reset password telah dikirim ke email Anda!', 'success');
+        forgotPasswordModal.style.display = 'none';
+      } else {
+        highlightErrorField(document.getElementById('forgot-password-email'), 'Email tidak terdaftar!');
+      }
+    });
+  </script>
+
+  <style>
+    /* Notification styles */
+    .notification {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 15px 20px;
+      border-radius: 5px;
+      font-size: 14px;
+      color: #fff;
+      display: none;
+      z-index: 1  000;
+      transition: opacity 0.5s ease;
+    }
+
+    .notification.success {
+      background-color: #4caf50;
+    }
+
+    .notification.error {
+      background-color: #f44336;
+    }
+
+    /* Highlight error fields */
+    .error {
+      border: 2px solid #f44336;
+      background-color: #ffe6e6; 
+      animation: shake 0.3s ease-in-out;
+    }
+
+    @keyframes shake {
+      0%, 100% {
+        transform: translateX(0);
+      }
+      25% {
+        transform: translateX(-5px);
+      }
+      50% {
+        transform: translateX(5px);
+      }
+      75% {
+        transform: translateX(-5px);
+      }
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 30%;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    .modal-content input {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .modal-content .btn {
+      padding: 10px 20px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .modal-content .btn:hover {
+      background-color: #45a049;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+    }
+  </style>
   <!-- scripts end -->
 </body>
 
