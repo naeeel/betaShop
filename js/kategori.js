@@ -8,4 +8,4 @@ document.addEventListener("DOMContentLoaded", function () {
     if (selectedCategory) {
       document.getElementById("category-title").innerText = selectedCategory;
     }
-  });
+});

@@ -1,0 +1,104 @@
+[
+    {
+        "id": 1,
+        "name": "Bintang Maratur",
+        "price": {
+            "oldPrice": 100000,
+            "newPrice": 80000
+        },
+        "discount": 22,
+        "img": {
+            "singleImage": "img/products/ulos/ulos bintang maratur.jpg",
+            "thumbs": [
+                "img/products/ulos/ulos bintang maratur.jpg",
+                "img/products/ulos/ulos bintang maratur.jpg",
+                "img/products/ulos/ulos bintang maratur.jpg"
+            ]
+        }
+    },
+    {
+        "id": 2,
+        "name": "Mangiring",
+        "price": {
+            "oldPrice": 265000,
+            "newPrice": 208000
+        },
+        "discount": 33,
+        "img": {
+            "singleImage": "img/products/ulos/ulos mangiring.jpg",
+            "thumbs": [
+                "img/products/ulos/ulos mangiring.jpg",
+                "img/products/ulos/ulos mangiring.jpg",
+                "img/products/ulos/ulos mangiring.jpg"
+            ]
+        }
+    },
+    {
+        "id": 3,
+        "name": "Pinunsaan",
+        "price": {
+            "oldPrice": 105000,
+            "newPrice": 67000
+        },
+        "discount": 90,
+        "img": {
+            "singleImage": "img/products/ulos/ulos pinunsaan.jpg",
+            "thumbs": [
+                "img/products/ulos/ulos pinunsaan.jpg",
+                "img/products/ulos/ulos pinunsaan.jpg",
+                "img/products/ulos/ulos pinunsaan.jpg"
+            ]
+        }
+    },
+    {
+        "id": 4,
+        "name": "Ragi Hotang",
+        "price": {
+            "oldPrice": 500000,
+            "newPrice": 4800000
+        },
+        "discount": 20,
+        "img": {
+            "singleImage": "img/products/ulos/ulos ragi hotang.jpg",
+            "thumbs": [
+                "img/products/ulos/ulos ragi hotang.jpg",
+                "img/products/ulos/ulos ragi hotang.jpg",
+                "img/products/ulos/ulos ragi hotang.jpg"
+            ]
+        }
+    },
+    {
+        "id": 5,
+        "name": "Ragi Huting",
+        "price": {
+            "oldPrice": 78000,
+            "newPrice": 48000
+        },
+        "discount": 40,
+        "img": {
+            "singleImage": "img/products/ulos/ulos ragi huting.jpg",
+            "thumbs": [
+                "img/products/ulos/ulos ragi huting.jpg",
+                "img/products/ulos/ulos ragi huting.jpg",
+                "img/products/ulos/ulos ragi huting.jpg"
+            ]
+        }
+    },
+    {
+        "id": 6,
+        "name": "Sibolang",
+        "price": {
+            "oldPrice": 200000,
+            "newPrice": 190000
+        },
+        "discount": 40,
+        "img": {
+            "singleImage": "img/products/ulos/ulos sibolang.jpg",
+            "thumbs": [
+                "img/products/ulos/ulos sibolang.jpg",
+                "img/products/ulos/ulos sibolang.jpg",
+                "img/products/ulos/ulos sibolang.jpg"
+            ]
+        }
+    }
+]

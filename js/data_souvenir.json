@@ -1,0 +1,104 @@
+[
+    {
+        "id": 1,
+        "name": "Botol",
+        "price": {
+            "oldPrice": 10000,
+            "newPrice": 8000
+        },
+        "discount": 22,
+        "img": {
+            "singleImage": "img/products/souvenir/souvenir botol.jpg",
+            "thumbs": [
+                "img/products/souvenir/souvenir botol.jpg",
+                "img/products/souvenir/souvenir botol.jpg",
+                "img/products/souvenir/souvenir botol.jpg"
+            ]
+        }
+    },
+    {
+        "id": 2,
+        "name": "Dompet Batik",
+        "price": {
+            "oldPrice": 26500,
+            "newPrice": 20000
+        },
+        "discount": 33,
+        "img": {
+            "singleImage": "img/products/souvenir/souvenir dompet batik.jpg",
+            "thumbs": [
+                "img/products/souvenir/souvenir dompet batik.jpg",
+                "img/products/souvenir/souvenir dompet batik.jpg",
+                "img/products/souvenir/souvenir dompet batik.jpg"
+            ]
+        }
+    },
+    {
+        "id": 3,
+        "name": "Kaca Hias",
+        "price": {
+            "oldPrice": 50000,
+            "newPrice": 45000
+        },
+        "discount": 20,
+        "img": {
+            "singleImage": "img/products/souvenir/souvenir gelas enamel.jpg",
+            "thumbs": [
+                "img/products/souvenir/souvenir gelas enamel.jpg",
+                "img/products/souvenir/souvenir gelas enamel.jpg",
+                "img/products/souvenir/souvenir gelas enamel.jpg"
+            ]
+        }
+    },
+    {
+        "id": 4,
+        "name": "Handuk",
+        "price": {
+            "oldPrice": 80000,
+            "newPrice": 70000
+        },
+        "discount": 10,
+        "img": {
+            "singleImage": "img/products/souvenir/souvenir handuk.jpg",
+            "thumbs": [
+                "img/products/souvenir/souvenir handuk.jpg",
+                "img/products/souvenir/souvenir handuk.jpg",
+                "img/products/souvenir/souvenir handuk.jpg"
+            ]
+        }
+    },
+    {
+        "id": 5,
+        "name": "Mangkok",
+        "price": {
+            "oldPrice": 30000,
+            "newPrice":22000
+        },
+        "discount": 8,
+        "img": {
+            "singleImage": "img/products/souvenir/souvenir mangkok.jpg",
+            "thumbs": [
+                "img/products/souvenir/souvenir mangkok.jpg",
+                "img/products/souvenir/souvenir mangkok.jpg",
+                "img/products/souvenir/souvenir mangkok.jpg"
+            ]
+        }
+    },
+    {
+        "id": 6,
+        "name": "Puch",
+        "price": {
+            "oldPrice": 50000,
+            "newPrice":45000
+        },
+        "discount": 5,
+        "img": {
+            "singleImage": "img/products/souvenir/souvenir pouch.jpg",
+            "thumbs": [
+                "img/products/souvenir/souvenir pouch.jpg",
+                "img/products/souvenir/souvenir pouch.jpg",
+                "img/products/souvenir/souvenir pouch.jpg"
+            ]
+        }
+    }
+]

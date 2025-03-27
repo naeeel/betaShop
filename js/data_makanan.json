@@ -1,0 +1,104 @@
+[
+    {
+        "id": 1,
+        "name": "Ayam Kecap",
+        "price": {
+            "oldPrice": 18000,
+            "newPrice": 15000
+        },
+        "discount": 5,
+        "img": {
+            "singleImage": "img/products/makanan/ayam kecap.jpg",
+            "thumbs": [
+                "img/products/makanan/ayam kecap.jpg",
+                "img/products/makanan/ayam kecap.jpg",
+                "img/products/makanan/ayam kecap.jpg"
+            ]
+        }
+    },
+    {
+        "id": 2,
+        "name": "Dendeng Balado",
+        "price": {
+            "oldPrice": 20000,
+            "newPrice": 18000
+        },
+        "discount": 10,
+        "img": {
+            "singleImage": "img/products/makanan/dendeng balado.jpg",
+            "thumbs": [
+                "img/products/makanan/dendeng balado.jpg",
+                "img/products/makanan/dendeng balado.jpg",
+                "img/products/makanan/dendeng balado.jpg"
+            ]
+        }
+    },
+    {
+        "id": 3,
+        "name": "Gulai Kambing",
+        "price": {
+            "oldPrice": 40000,
+            "newPrice": 35000
+        },
+        "discount": 10,
+        "img": {
+            "singleImage": "img/products/makanan/gulai kambing.jpg",
+            "thumbs": [
+                "img/products/makanan/gulai kambing.jpg",
+                "img/products/makanan/gulai kambing.jpg",
+                "img/products/makanan/gulai kambing.jpg"
+            ]
+        }
+    },
+    {
+        "id": 4,
+        "name": "Mie Telur Goreng",
+        "price": {
+            "oldPrice": 15000,
+            "newPrice": 12000
+        },
+        "discount": 10,
+        "img": {
+            "singleImage": "img/products/makanan/mie telur goreng.jpg",
+            "thumbs": [
+                "img/products/makanan/mie telur goreng.jpg",
+                "img/products/makanan/mie telur goreng.jpg",
+                "img/products/makanan/mie telur goreng.jpg"
+            ]
+        }
+    },
+    {
+        "id": 5,
+        "name": "Nasi Goreng Lada Hitam",
+        "price": {
+            "oldPrice": 30000,
+            "newPrice": 28000
+        },
+        "discount": 5,
+        "img": {
+            "singleImage": "img/products/makanan/nasi goreng lada hitam.jpg",
+            "thumbs": [
+                "img/products/makanan/nasi goreng lada hitam.jpg",
+                "img/products/makanan/nasi goreng lada hitam.jpg",
+                "img/products/makanan/nasi goreng lada hitam.jpg"
+            ]
+        }
+    },
+    {
+        "id": 6,
+        "name": "Rendang",
+        "price": {
+            "oldPrice": 35000,
+            "newPrice": 30000
+        },
+        "discount": 5,
+        "img": {
+            "singleImage": "img/products/makanan/rendang.jpg",
+            "thumbs": [
+                "img/products/makanan/rendang.jpg",
+                "img/products/makanan/rendang.jpg",
+                "img/products/makanan/rendang.jpg"
+            ]
+        }
+    }
+]

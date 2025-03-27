@@ -1,0 +1,104 @@
+[
+    {
+        "id": 1,
+        "name": "Baju Tidur",
+        "price": {
+            "oldPrice": 100000,
+            "newPrice": 80000
+        },
+        "discount": 22,
+        "img": {
+            "singleImage": "img/products/pakaian/baju tidur.jpg",
+            "thumbs": [
+                "img/products/pakaian/baju tidur.jpg",
+                "img/products/pakaian/baju tidur.jpg",
+                "img/products/pakaian/baju tidur.jpg"
+            ]
+        }
+    },
+    {
+        "id": 2,
+        "name": "Celana Cargo",
+        "price": {
+            "oldPrice": 200000,
+            "newPrice": 170000
+        },
+        "discount": 20,
+        "img": {
+            "singleImage": "img/products/pakaian/celana cargo.jpg",
+            "thumbs": [
+                "img/products/pakaian/celana cargo.jpg",
+                "img/products/pakaian/celana cargo.jpg",
+                "img/products/pakaian/celana cargo.jpg"
+            ]
+        }
+    },
+    {
+        "id": 3,
+        "name": "Dress",
+        "price": {
+            "oldPrice": 150000,
+            "newPrice": 130000
+        },
+        "discount": 20,
+        "img": {
+            "singleImage": "img/products/pakaian/dress.jpg",
+            "thumbs": [
+                "img/products/pakaian/dress.jpg",
+                "img/products/pakaian/dress.jpg",
+                "img/products/pakaian/dress.jpg"
+            ]
+        }
+    },
+    {
+        "id": 4,
+        "name": "Kaos",
+        "price": {
+            "oldPrice": 50000,
+            "newPrice": 45000
+        },
+        "discount": 10,
+        "img": {
+            "singleImage": "img/products/pakaian/kaos.jpg",
+            "thumbs": [
+                "img/products/pakaian/kaos.jpg",
+                "img/products/pakaian/kaos.jpg",
+                "img/products/pakaian/kaos.jpg"
+            ]
+        }
+    },
+    {
+        "id": 5,
+        "name": "Kemeja Flanel",
+        "price": {
+            "oldPrice": 150000,
+            "newPrice": 130000
+        },
+        "discount": 20,
+        "img": {
+            "singleImage": "img/products/pakaian/kemeja flanel.jpg",
+            "thumbs": [
+                "img/products/pakaian/kemeja flanel.jpg",
+                "img/products/pakaian/kemeja flanel.jpg",
+                "img/products/pakaian/kemeja flanel.jpg"
+            ]
+        }
+    },
+    {
+        "id": 6,
+        "name": "Kemeja",
+        "price": {
+            "oldPrice": 100000,
+            "newPrice": 90000
+        },
+        "discount": 10,
+        "img": {
+            "singleImage": "img/products/pakaian/kemeja.jpg",
+            "thumbs": [
+                "img/products/pakaian/kemeja.jpg",
+                "img/products/pakaian/kemeja.jpg",
+                "img/products/pakaian/kemeja.jpg"
+            ]
+        }
+    }
+]
