@@ -6,35 +6,50 @@ import searchFunc from "./search.js"
 
 (async function () {
     try {
-        const response = await fetch("/produk"); // ambil dari server, bukan dari file lokal
-        const data = await response.json(); // convert response ke json
+        // Coba fetch dari server terlebih dahulu
+        const response = await fetch("http://localhost:3000/produk", {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        const data = await response.json();
 
         if (data && Array.isArray(data)) {
-            localStorage.setItem("products", JSON.stringify(data));
-            const mappedData = data.map(item => ({
+            const mappedProducts = data.map(item => ({
                 id: item.id,
                 name: item.name,
                 description: item.description,
-                discount: item.discount,
-                rating: item.rating,
                 price: {
-                  newPrice: item.new_price,
-                  oldPrice: item.old_price
+                    oldPrice: parseInt(item.old_price),
+                    newPrice: parseInt(item.new_price)
                 },
+                rating: parseInt(item.rating),
+                discount: parseInt(item.discount),
                 img: {
-                  singleImage: `/img/products/kerajinan/${encodeURIComponent(item.img1)}`,
-                  thumbs: [`/img/products/kerajinan/${encodeURIComponent(item.img1)}`, `http://localhost:3000/img/products/kerajinan/${encodeURIComponent(item.img2)}`]
+                    singleImage: `img/products/kerajinan/${item.img1}`,
+                    thumbs: [
+                        `img/products/kerajinan/${item.img1}`,
+                        `img/products/kerajinan/${item.img2}`
+                    ]
                 }
-              }));
-            productFunc(mappedData);
-            searchFunc(mappedData);
+            }));
+
+            localStorage.setItem("products", JSON.stringify(mappedProducts));
+            productFunc(mappedProducts);
+            searchFunc(mappedProducts);
         }
     } catch (error) {
-        console.error("Gagal mengambil data produk:", error);
+        console.warn("Error fetching from server, loading local data:", error);
+        // Fallback ke data lokal jika fetch gagal
+        const localData = localStorage.getItem("products");
+        if (localData) {
+            const products = JSON.parse(localData);
+            productFunc(products);
+            searchFunc(products);
+        }
     }
 })();
-
-
 
 //! add product to localstorage end
 
