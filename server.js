@@ -44,6 +44,7 @@ app.get("/produk", (req, res) => {
     GROUP BY 
       p.id, p.name, p.description, p.old_price, 
       p.new_price, p.discount, p.img1, p.img2
+    ORDER BY average_rating DESC, total_reviews DESC
   `;
 
   db.query(query, (err, result) => {
