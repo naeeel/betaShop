@@ -261,6 +261,102 @@
     </section>
     <!-- ! cart end -->
 
+    <!-- Modal Pembayaran -->
+    <div id="checkout-modal" class="modal-checkout" style="display:none;">
+      <div class="modal-content" style="max-width:420px;padding:2rem 2.5rem;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.15);background:#fff;position:relative;">
+        <span class="close-modal" id="close-checkout-modal" style="position:absolute;top:18px;right:18px;font-size:1.5rem;cursor:pointer;">&times;</span>
+        <h2 style="margin-bottom:1.2rem;font-size:1.4rem;text-align:center;">Konfirmasi Pembayaran</h2>
+        <form id="checkout-form" style="display:flex;flex-direction:column;gap:1.1rem;">
+          <div>
+            <label for="shipping-address" style="font-weight:500;">Alamat Pengiriman</label>
+            <textarea id="shipping-address" name="shipping-address" rows="2" required style="width:100%;padding:0.5rem;margin-top:0.3rem;border-radius:6px;border:1px solid #ccc;resize:vertical;" placeholder="Masukkan alamat lengkap pengiriman"></textarea>
+          </div>
+          <div>
+            <label for="payment-method" style="font-weight:500;">Metode Pembayaran</label>
+            <select id="payment-method" name="payment-method" required style="width:100%;padding:0.5rem;margin-top:0.3rem;border-radius:6px;border:1px solid #ccc;">
+              <option value="">Pilih metode pembayaran</option>
+              <option value="bank">Transfer Bank (BCA, Mandiri, BRI, dll)</option>
+              <option value="ewallet">E-Wallet (OVO, GoPay, Dana, ShopeePay)</option>
+              <option value="cod">Bayar di Tempat (COD)</option>
+              <option value="creditcard">Kartu Kredit/Debit</option>
+            </select>
+          </div>
+          <div>
+            <label for="shipping-service" style="font-weight:500;">Jasa Pengiriman</label>
+            <select id="shipping-service" name="shipping-service" required style="width:100%;padding:0.5rem;margin-top:0.3rem;border-radius:6px;border:1px solid #ccc;">
+              <option value="">Pilih jasa pengiriman</option>
+              <option value="jne">JNE</option>
+              <option value="jnt">J&T Express</option>
+              <option value="sicepat">SiCepat</option>
+              <option value="anteraja">AnterAja</option>
+              <option value="gosend">GoSend</option>
+              <option value="shopee">Shopee Express</option>
+              <option value="amazon">Amazon Logistics</option>
+              <option value="tokopedia">Kurir Tokopedia</option>
+            </select>
+          </div>
+          <div style="margin-top:1.5rem;">
+            <button id="confirm-payment" class="btn btn-red" style="width:100%;font-size:1.1rem;padding:0.7rem 0;">Bayar Sekarang</button>
+          </div>
+        </form>
+      </div>
+      <style>
+        /* Modal overlay improvement */
+        .modal-checkout {
+          position: fixed;
+          z-index: 9999;
+          left: 0; top: 0; right: 0; bottom: 0;
+          background: rgba(0,0,0,0.25);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        @media (max-width: 600px) {
+          .modal-content {
+            max-width: 98vw !important;
+            padding: 1rem !important;
+          }
+        }
+      </style>
+      <script>
+        // Modal open/close logic (pastikan sudah ada di JS utama, ini hanya contoh)
+        document.addEventListener('DOMContentLoaded', function() {
+          const modal = document.getElementById('checkout-modal');
+          const closeBtn = document.getElementById('close-checkout-modal');
+          const checkoutBtn = document.querySelector('.checkout .btn-red');
+          if (checkoutBtn) {
+            checkoutBtn.onclick = function(e) {
+              e.preventDefault();
+              modal.style.display = 'flex';
+            };
+          }
+          closeBtn.onclick = function() {
+            modal.style.display = 'none';
+          };
+          window.onclick = function(event) {
+            if (event.target === modal) {
+              modal.style.display = 'none';
+            }
+          };
+          // Form validation & dummy submit
+          const form = document.getElementById('checkout-form');
+          form.onsubmit = function(e) {
+            e.preventDefault();
+            if (
+              form['shipping-address'].value.trim() &&
+              form['payment-method'].value &&
+              form['shipping-service'].value
+            ) {
+              alert('Pembayaran berhasil! Pesanan Anda sedang diproses.');
+              modal.style.display = 'none';
+              // Reset form jika perlu
+              form.reset();
+            }
+          };
+        });
+      </script>
+    </div>
+
      <!-- ! policy start -->
   <section class="policy">
     <div class="container">

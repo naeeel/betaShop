@@ -625,6 +625,15 @@
         highlightErrorField(document.getElementById('forgot-password-email'), 'Email tidak terdaftar!');
       }
     });
+
+    // Logout function (call this on logout button if needed)
+    function logout() {
+      sessionStorage.removeItem('loggedInUser');
+      showNotification('Logout berhasil!', 'success');
+      setTimeout(() => {
+        window.location.href = '/account.html';
+      }, 1000);
+    }
   </script>
 
   <style>
