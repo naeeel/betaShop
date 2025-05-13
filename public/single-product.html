@@ -39,7 +39,7 @@
                             <ul class="menu-list">
                                 <li class="menu-list-item">
                                     <a href="/" class="menu-link">Home
-                                        <i class="bi bi-chevron-down"></i>
+                                        <!-- <i class="bi bi-chevron-down"></i> -->
                                     </a>
                                     <div class="menu-dropdown-wrapper">
                                         <!-- <ul class="menu-dropdown-content">
@@ -57,14 +57,14 @@
                                 </li>
                                 <li class="menu-list-item megamenu-wrapper">
                                     <a href="shop.html" class="menu-link active">Shop
-                                        <i class="bi bi-chevron-down"></i>
+                                        <!-- <i class="bi bi-chevron-down"></i> -->
                                     </a>
-                                    <div class="menu-dropdown-wrapper">
+                                    <!-- <div class="menu-dropdown-wrapper">
                                         <div class="menu-dropdown-megamenu">
                                             <div class="megamenu-links">
                                                 <div class="megamenu-products">
                                                     <h3 class="megamenu-product-title">Shop Style</h3>
-                                                    <!-- <ul class="megamenu-menu-list">
+                                                    <ul class="megamenu-menu-list">
                                                         <li><a href="#">Shop Standart</a></li>
                                                         <li><a href="#">Shop Full</a></li>
                                                         <li><a href="#">Shop Only Categories</a></li>
@@ -74,28 +74,28 @@
                                                         <li><a href="#">Hover Style 1</a></li>
                                                         <li><a href="#">Hover Style 2</a></li>
                                                         <li><a href="#">Hover Style 3</a></li>
-                                                    </ul> -->
+                                                    </ul> 
                                                 </div>
                                                 <div class="megamenu-products">
                                                     <h3 class="megamenu-product-title">
                                                         Filter Layout
                                                     </h3>
                                                     <ul class="megamenu-menu-list">
-                                                        <!-- <li><a href="#">Sidebar</a></li>
+                                                        <li><a href="#">Sidebar</a></li>
                                                         <li><a href="#">Filter Side Out</a></li>
                                                         <li><a href="#">Filter Dropdown</a></li>
-                                                        <li><a href="#">Filter Drawer</a></li> -->
+                                                        <li><a href="#">Filter Drawer</a></li> 
                                                     </ul>
                                                 </div>
                                                 <div class="megamenu-products">
                                                     <h3 class="megamenu-product-title">Shop Loader</h3>
                                                     <ul class="megamenu-menu-list">
-                                                        <!-- <li><a href="#">Shop Pagination</a></li>
+                                                        <li><a href="#">Shop Pagination</a></li>
                                                         <li><a href="#">Shop Infinity</a></li>
                                                         <li><a href="#">Shop Load More</a></li>
                                                         <li><a href="#">Cart Modal</a></li>
                                                         <li><a href="#">Cart Drawer</a></li>
-                                                        <li><a href="#">Cart Page</a></li> -->
+                                                        <li><a href="#">Cart Page</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -112,7 +112,7 @@
                                                 <a href="#" class="megamenu-single-button btn btn-sm">Shop Now</a>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </li>
                                 <li class="menu-list-item">
                                     <a href="blog.html" class="menu-link">Blog
@@ -216,13 +216,23 @@
                             <h1 class="product-title">Keripik Pisang</h1>
                             <div class="product-review">
                                 <ul class="product-star">
-                                    <li><i class="bi bi-star-fill" data-value="1"></i></li>
-                                    <li><i class="bi bi-star-fill" data-value="2"></i></li>
-                                    <li><i class="bi bi-star-fill" data-value="3"></i></li>
-                                    <li><i class="bi bi-star-fill" data-value="4"></i></li>
-                                    <li><i class="bi bi-star-half" data-value="5"></i></li>
-                                </ul>
-                                <span>2 reviews</span>
+                                    <li>
+                                      <i class="bi bi-star-fill"></i>
+                                    </li>
+                                    <li>
+                                      <i class="bi bi-star-fill"></i>
+                                    </li>
+                                    <li>
+                                      <i class="bi bi-star-fill"></i>
+                                    </li>
+                                    <li>
+                                      <i class="bi bi-star-fill"></i>
+                                    </li>
+                                    <li>
+                                      <i class="bi bi-star-half"></i>
+                                    </li>
+                                  </ul>
+                                <!-- <span>2 reviews</span> -->
                             </div>
                             <div class="product-price">
                                 <s class="old-price">Rp 10.000</s>
@@ -300,14 +310,14 @@
                                     <span>SKU:</span>
                                     <a href="#">BE45VGRT</a>
                                 </div> -->
-                                <div class="product-categories">
+                                <!-- <div class="product-categories">
                                     <span>Categories:</span>
                                     <a href="#">Makanan</a>
                                 </div>
                                 <div class="product-tags">
                                     <span>Tags:</span>
                                     <a href="#">renyah, sehat</a>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </main>
@@ -463,6 +473,8 @@
                                         Alamat email Anda tidak akan dipublikasikan. Kolom yang harus diisi ditandai dengan
                                         <span class="required">*</span>
                                     </p>
+                                    <div class="product-id">456</div>
+                                    <input type="hidden" class="id_product" value="">
                                     <div class="comment-form-rating">
                                         <label>
                                             Rating anda
@@ -526,7 +538,7 @@
                                         </label>
                                     </div>
                                     <div class="form-submit">
-                                        <input class="btn btn-submit" type="submit" value="Send" onclick="simpanData()">
+                                        <input class="btn btn-submit" type="submit" value="Send" onclick="simpanData(event)">
                                     </div>
 
                                 </form>
@@ -749,3 +761,76 @@
 </body>
 
 </html>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Temukan elemen dengan class .product-id
+      const productId = document.querySelector(".product-id");
+  
+      // Pastikan productId ada, kemudian ambil ID dari innerHTML
+      if (productId) {
+        const productIdValue = productId.innerHTML.trim();
+        
+        // Tentukan nilai pada input hidden dengan class .id_product
+        const input = document.querySelector(".id_product");
+        if (input) {
+          input.value = productIdValue;
+        }
+      }
+    });
+  
+    let selectedRating = 0;
+  
+    // Ambil rating saat klik bintang
+    document.querySelectorAll('.star').forEach(function(star) {
+      star.addEventListener('click', function(e) {
+        e.preventDefault();
+  
+        selectedRating = this.getAttribute('data-value');
+  
+        // reset semua
+        document.querySelectorAll('.star').forEach(s => s.classList.remove('selected'));
+  
+        // tandai yang terpilih
+        this.classList.add('selected');
+      });
+    });
+  
+    async function simpanData() {
+      // Ambil id_product dari input hidden
+      const id_product = document.querySelector(".id_product")?.value;
+      const ulasan = document.getElementById("form-review").value.trim();
+  
+      if (!selectedRating || !ulasan) {
+        alert("Semua kolom wajib diisi!");
+        return;
+      }
+  
+      try {
+        const response = await fetch("http://localhost:3000/ulasan", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            id_product,
+            rating_ulasan: selectedRating,
+            ulasan
+          })
+        });
+  
+        const data = await response.json();
+  
+        if (response.ok) {
+          alert("Ulasan berhasil dikirim!");
+          document.querySelector(".comment-form").reset();
+          selectedRating = 0;
+        } else {
+          alert(data.error || "Gagal menyimpan ulasan");
+        }
+      } catch (err) {
+        console.error(err);
+        alert("Terjadi kesalahan saat mengirim ulasan");
+      }
+    }
+  </script>  

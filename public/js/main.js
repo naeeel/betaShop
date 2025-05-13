@@ -20,20 +20,24 @@ import searchFunc from "./search.js"
                 id: item.id,
                 name: item.name,
                 description: item.description,
+                size: item.size,
+                ulasan: [],
                 price: {
-                    oldPrice: parseInt(item.old_price),
-                    newPrice: parseInt(item.new_price)
+                  oldPrice: parseInt(item.old_price),
+                  newPrice: parseInt(item.new_price)
                 },
-                rating: parseInt(item.rating),
+                rating: item.average_rating ? parseFloat(item.average_rating) : 0,
+                total_reviews: parseInt(item.total_reviews),
                 discount: parseInt(item.discount),
                 img: {
-                    singleImage: `img/products/kerajinan/${item.img1}`,
-                    thumbs: [
-                        `img/products/kerajinan/${item.img1}`,
-                        `img/products/kerajinan/${item.img2}`
-                    ]
+                  singleImage: `/uploads/${item.img1}`,
+                  thumbs: [
+                    `/uploads/${item.img1}`,
+                    `/uploads/${item.img2}`
+                  ]
                 }
-            }));
+              }));
+              
 
             localStorage.setItem("products", JSON.stringify(mappedProducts));
             productFunc(mappedProducts);

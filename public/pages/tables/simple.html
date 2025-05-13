@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdminLTE 3 | Simple Tables</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    </nav>
+    <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="../../img/logo.png" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">Beta Shop</a>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <li class="nav-item">
+            <a href="../../admin.html" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li class="nav-item menu-open">
+            <a href="../forms/general.html" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                Form Produk
+              </p>
+            </a>
+          </li>
+          <li class="nav-item menu-open">
+            <a href="../tables/simple.html" class="nav-link active">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                Data Produk
+              </p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Simple Tables</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Data Produk</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <!-- /.row -->
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Data Produk</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                  <thead>
+                    <tr>
+                      <th>No</th>
+                      <th>Nama Produk</th>
+                      <th>Harga Produk Sebelum</th>
+                      <th>Harga Produk Sebelum</th>
+                      <th>Deskripsi</th>
+                      <th>Diskon</th>
+                      <th>Gambar 1</th>
+                      <th>Gambar 2</th>
+                      <th>Aksi</th>
+                    </tr>
+                  </thead>
+                  <tbody id="product-table-body">
+                    <tr>
+                      <td>1</td>
+                      <td>John Doe</td>
+                      <td>11-7-2014</td>
+                      <td>11-7-2014</td>
+                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                      <td>John Doe</td>
+                      <td>John Doe</td>
+                      <td>John Doe</td>
+                      <td>
+                        <button type="edit" class="btn btn-warning">Edit</button>
+                        <button type="delete" class="btn btn-danger">Delete</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <strong>Copyright &copy; Beta Shop.</strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+      <b>Version</b> 1.0.0
+    </div>
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="../../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../../dist/js/demo.js"></script>
+
+<script>
+  async function loadProdukToTable() {
+    try {
+      const response = await fetch("http://localhost:3000/produk");
+      const data = await response.json();
+
+      const tbody = document.getElementById("product-table-body");
+      tbody.innerHTML = ""; // bersihkan dulu isinya
+
+      data.forEach((produk, index) => {
+        const row = `
+          <tr>
+            <td>${index + 1}</td>
+            <td>${produk.name}</td>
+            <td>${formatRupiah(produk.old_price)}</td>
+            <td>${formatRupiah(produk.new_price)}</td>
+            <td>${produk.description}</td>
+            <td>${produk.discount}%</td>
+            <td><img src="/uploads/${produk.img1}" alt="" width="50"></td>
+            <td><img src="/uploads/${produk.img2}" alt="" width="50"></td>
+            <td>
+              <button class="btn btn-warning" onclick="window.location.href='../forms/edit.html?id=${produk.id}'">Edit</button>
+              <button class="btn btn-danger" onclick="deleteProduk(${produk.id})">Delete</button>
+            </td>
+          </tr>
+        `;
+        tbody.innerHTML += row;
+      });
+    } catch (err) {
+      console.error("Gagal memuat data produk:", err);
+    }
+  }
+
+  function deleteProduk(id) {
+    if (confirm("Yakin ingin menghapus produk ini?")) {
+      fetch(`http://localhost:3000/produk/${id}`, {
+        method: "DELETE"
+      })
+        .then(res => res.json())
+        .then(data => {
+          if (data.success) {
+            alert("Produk berhasil dihapus");
+            window.location.reload(); // Refresh untuk perbarui tampilan
+          } else {
+            alert(data.error || "Gagal menghapus produk");
+          }
+        })
+        .catch(err => {
+          console.error("Terjadi kesalahan saat menghapus:", err);
+          alert("Gagal menghapus produk");
+        });
+    }
+  }
+
+  function formatRupiah(angka) {
+    return new Intl.NumberFormat('id-ID', {
+      style: 'currency',
+      currency: 'IDR'
+    }).format(angka);
+  }
+
+  // panggil saat halaman selesai dimuat
+  document.addEventListener("DOMContentLoaded", loadProdukToTable);
+</script>
+
+</body>
+</html>

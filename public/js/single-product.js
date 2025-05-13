@@ -21,10 +21,50 @@ const products = localStorage.getItem("products")
 
 const findProduct = products.find((item) => item.id === Number(productId));
 
+function renderStars(rating) {
+    let starsHTML = "<ul class='product-star'>";
+    const fullStars = Math.floor(rating);
+    const hasHalfStar = rating % 1 >= 0.5;
+  
+    // Bintang penuh
+    for (let i = 0; i < fullStars; i++) {
+      starsHTML += `
+        <li><i class="bi bi-star-fill"></i></li>
+      `;
+    }
+  
+    // Bintang setengah (jika ada)
+    if (hasHalfStar) {
+      starsHTML += `
+        <li><i class="bi bi-star-half"></i></li>
+      `;
+    }
+  
+    // Bintang kosong (untuk melengkapi jadi 5 total)
+    const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+    for (let i = 0; i < emptyStars; i++) {
+      starsHTML += `
+        <li><i class="bi bi-star"></i></li>
+      `;
+    }
+  
+    starsHTML += "</ul>";
+    return starsHTML;
+  }
+
 if(findProduct){
     /* product title */
     const productTitle = document.querySelector(".product-title");
     if (productTitle) productTitle.innerHTML = findProduct.name;
+
+    const productId = document.querySelector(".product-id");
+    if (productId) productId.innerHTML = findProduct.id;
+
+    const productDescripsi = document.querySelector(".product-description");
+    if (productDescripsi) productDescripsi.innerHTML = findProduct.description;
+
+    const productRating = document.querySelector(".product-star");
+    if (productRating) productRating.innerHTML = renderStars(findProduct.rating);
 
     // Format harga ke dalam Rupiah
     const formatRupiah = (amount) => {
